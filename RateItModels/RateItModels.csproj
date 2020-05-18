@@ -68,10 +68,12 @@
     <Compile Include="Review\ReviewEdit.cs" />
     <Compile Include="Review\ReviewListItem.cs" />
     <Compile Include="Review\ReviewStatistics.cs" />
+    <Compile Include="Show\ShowCreate.cs" />
+    <Compile Include="Show\ShowDetail.cs" />
+    <Compile Include="Show\ShowEdit.cs" />
+    <Compile Include="Show\ShowListItem.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Show\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
