@@ -64,5 +64,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RateItData\RateItData.csproj">
+      <Project>{83BE2263-6FC7-4C7F-ACC4-19A546B27728}</Project>
+      <Name>RateItData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RateItModels\RateItModels.csproj">
+      <Project>{8A45AF34-A1FD-463C-B178-D6A2A3ADD8CA}</Project>
+      <Name>RateItModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

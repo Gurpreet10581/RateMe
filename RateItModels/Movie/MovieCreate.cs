@@ -28,6 +28,7 @@ namespace RateItModels.Movie
         public MovieGenre GenreOfMovie { get; set; }
         [Required]
         public MovieType TypeOfMovie { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
         public int ReviewId { get; set; }
 
 

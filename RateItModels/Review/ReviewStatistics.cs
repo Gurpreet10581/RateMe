@@ -16,6 +16,6 @@ namespace RateItModels.Review
         public DateTime StartDate { get; set; }
         [Required]
         public DateTime EndDate { get; set; }
-        public List<int> Rating { get; set; }
+        public List<int> Ratings { get; set; }
     }
 }

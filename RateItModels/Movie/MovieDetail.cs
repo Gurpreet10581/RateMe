@@ -15,6 +15,7 @@ namespace RateItModels.Movie
         public int MovieId { get; set; }
         public string MovieName { get; set; }
         public string DirectorName { get; set; }
+        public decimal Duration { get; set; }
         public DateTime DateRelease { get; set; }
         public MovieGenre GenreOfMovie { get; set; }
         public MovieType TypeOfMovie { get; set; }
