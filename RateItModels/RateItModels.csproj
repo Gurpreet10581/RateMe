@@ -58,6 +58,10 @@
     <Compile Include="Movie\MovieDetail.cs" />
     <Compile Include="Movie\MovieEdit.cs" />
     <Compile Include="Movie\MovieListItem.cs" />
+    <Compile Include="Music\MusicCreate.cs" />
+    <Compile Include="Music\MusicDetail.cs" />
+    <Compile Include="Music\MusicEdit.cs" />
+    <Compile Include="Music\MusicListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review\ReviewCreate.cs" />
     <Compile Include="Review\ReviewDetail.cs" />
@@ -66,7 +70,6 @@
     <Compile Include="Review\ReviewStatistics.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Music\" />
     <Folder Include="Show\" />
   </ItemGroup>
   <ItemGroup>
