@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using RateItModels.Movie;
+using RateItModels.Review;
+using RateItServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 
 namespace RateIt.Controllers
 {
@@ -11,7 +16,93 @@ namespace RateIt.Controllers
         // GET: Review
         public ActionResult Index()
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ReviewService(userId);
+            var model = service.GetReviews();
             return View();
+        }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ReviewCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            var service = CreateReviewService();
+            if (service.CreateReview(model))
+            {
+                TempData["SaveResult"] = "Your Review was created";
+            };
+            ModelState.AddModelError("","Review could not be created");
+            return View(model);
+
+        }
+
+        public ActionResult Details(int id)
+        {
+            var svc = CreateReviewService();
+            var model = svc.GetReviewById(id);
+
+            return View(model);
+        }
+        public ActionResult Edit(int id)
+        {
+            var service = CreateReviewService();
+            var detail = service.GetReviewById(id);
+            var model =
+                new ReviewEdit
+                {
+                    ReviewId = detail.ReviewId,
+                    Content = detail.Content,
+                    Rating = detail.Rating
+
+                };
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ReviewEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            if (model.ReviewId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+            }
+            var service = CreateReviewService();
+            if (service.UpdateReview(model))
+            {
+                TempData["SaveResult"] = "Your Review was updated";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Review could not be updated");
+            return View();
+        }
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateReviewService();
+            var model = svc.GetReviewById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateReviewService();
+            service.DeleteReview(id);
+            TempData["SaveResult"] = "Your note was deleted";
+
+            return RedirectToAction("Index");
+        }
+
+        private ReviewService CreateReviewService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ReviewService(userId);
+            return service;
         }
     }
 }
