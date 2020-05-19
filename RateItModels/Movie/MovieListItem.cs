@@ -15,10 +15,13 @@ namespace RateItModels.Movie
         public int MovieId { get; set; }
         public string MovieName { get; set; }
         public string DirectorName { get; set; }
+        [Display(Name = "Duration In Minutes")]
         public decimal Duration { get; set; }
+        [Display(Name = "DateRelease")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateRelease { get; set; }
         public MovieGenre GenreOfMovie { get; set; }
-        public MovieType TypeOfMovie { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
 
     }

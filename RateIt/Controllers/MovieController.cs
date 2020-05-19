@@ -59,9 +59,8 @@ namespace RateIt.Controllers
                 MovieName = detail.MovieName,
                 DirectorName = detail.DirectorName,
                 Duration = detail.Duration,
-                DateRelease = detail.DateRelease,
                 GenreOfMovie = detail.GenreOfMovie,
-                TypeOfMovie = detail.TypeOfMovie
+                DateRelease = detail.DateRelease
             };
             return View(model);
         }

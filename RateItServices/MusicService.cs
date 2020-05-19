@@ -90,9 +90,10 @@ namespace RateItServices
                     .Musics
                     .Single(e => e.MusicId == model.MusicId && e.OwnerId == _userId);
                 entity.ArtistName = model.ArtistName;
-                entity.DateRelease = model.DateRelease;
+                entity.Duration = model.Duration;
                 entity.GenreOfMusic = model.GenreOfMusic;
                 entity.TypeOfMusic = model.TypeOfMusic;
+                entity.DateRelease = model.DateRelease;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }

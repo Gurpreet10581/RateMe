@@ -25,9 +25,8 @@ namespace RateItServices
                     ShowName = model.ShowName,
                     DirectorName = model.DirectorName,
                     Duration = model.Duration,
-                    DateRelease = model.DateRelease,
                     GenreOfShow = model.GenreOfShow,
-                    TypeOfShow = model.TypeOfShow,
+                    DateRelease = model.DateRelease,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
@@ -52,9 +51,8 @@ namespace RateItServices
                                 ShowName = e.ShowName,
                                 DirectorName = e.DirectorName,
                                 Duration = e.Duration,
-                                DateRelease = e.DateRelease,
                                 GenreOfShow = e.GenreOfShow,
-                                TypeOfShow = e.TypeOfShow,
+                                DateRelease = e.DateRelease,
                                 CreatedUtc = e.CreatedUtc
                             }
                         );
@@ -78,7 +76,6 @@ namespace RateItServices
                         Duration = entity.Duration,
                         DateRelease = entity.DateRelease,
                         GenreOfShow = entity.GenreOfShow,
-                        TypeOfShow = entity.TypeOfShow,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -96,7 +93,6 @@ namespace RateItServices
                 entity.DirectorName = model.DirectorName;
                 entity.DateRelease = model.DateRelease;
                 entity.GenreOfShow = model.GenreOfShow;
-                entity.TypeOfShow = model.TypeOfShow;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }

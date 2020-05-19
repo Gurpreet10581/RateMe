@@ -27,7 +27,6 @@ namespace RateItServices
                     Duration=model.Duration,
                     DateRelease=model.DateRelease,
                     GenreOfMovie=model.GenreOfMovie,
-                    TypeOfMovie=model.TypeOfMovie,
                     CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
@@ -54,7 +53,6 @@ namespace RateItServices
                                 Duration=e.Duration,
                                 DateRelease=e.DateRelease,
                                 GenreOfMovie=e.GenreOfMovie,
-                                TypeOfMovie=e.TypeOfMovie,
                                 CreatedUtc = e.CreatedUtc
                             }
                         );
@@ -78,7 +76,6 @@ namespace RateItServices
                         Duration = entity.Duration,
                         DateRelease = entity.DateRelease,
                         GenreOfMovie = entity.GenreOfMovie,
-                        TypeOfMovie = entity.TypeOfMovie,
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
@@ -96,7 +93,6 @@ namespace RateItServices
                 entity.DirectorName = model.DirectorName;
                 entity.DateRelease = model.DateRelease;
                 entity.GenreOfMovie = model.GenreOfMovie;
-                entity.TypeOfMovie = model.TypeOfMovie;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }

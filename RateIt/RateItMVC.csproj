@@ -276,17 +276,17 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RateItData\RateItData.csproj">
+    <ProjectReference Include="..\RateItData\RateMeData.csproj">
       <Project>{83be2263-6fc7-4c7f-acc4-19a546b27728}</Project>
-      <Name>RateItData</Name>
+      <Name>RateMeData</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RateItModels\RateItModels.csproj">
+    <ProjectReference Include="..\RateItModels\RateMeModels.csproj">
       <Project>{8a45af34-a1fd-463c-b178-d6a2a3add8ca}</Project>
-      <Name>RateItModels</Name>
+      <Name>RateMeModels</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RateItServices\RateItServices.csproj">
+    <ProjectReference Include="..\RateItServices\RateMeServices.csproj">
       <Project>{cbc9e18b-9fc2-47d8-8458-524c991a6fc3}</Project>
-      <Name>RateItServices</Name>
+      <Name>RateMeServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

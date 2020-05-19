@@ -79,9 +79,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RateItData\RateItData.csproj">
+    <ProjectReference Include="..\RateItData\RateMeData.csproj">
       <Project>{83BE2263-6FC7-4C7F-ACC4-19A546B27728}</Project>
-      <Name>RateItData</Name>
+      <Name>RateMeData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,7 +11,7 @@ namespace RateItModels.Review
     {
         public int ReviewId { get; set; }
         [MaxLength(3000, ErrorMessage = "Maximum character lenght required is 3000 ")]
-        [MinLength(10, ErrorMessage = "Minimum character lenght required is 10 ")]
+        [MinLength(2, ErrorMessage = "Minimum character lenght required is 2 ")]
         public string Content { get; set; }
         [Range(1, 5, ErrorMessage = "Enter a rating on a scale of 1-5")]
         public int Rating { get; set; }

@@ -27,6 +27,9 @@
             @Html.DisplayNameFor(model => model.Duration)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.GenreOfMovie)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.DateRelease)
         </th>
         <th>
@@ -36,34 +39,37 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReviewId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DirectorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateRelease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MovieId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReviewId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MovieId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MovieName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DirectorName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Duration)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.GenreOfMovie)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DateRelease)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedUtc)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
+    </td>
+</tr>
 }
 
 </table>

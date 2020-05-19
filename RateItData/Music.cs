@@ -10,10 +10,8 @@ using System.Threading.Tasks;
 
 namespace RateItData
 {
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum MusicGenre { Alternative = 1, African, American, Bollywood, Comedy, Classical, Country, Dance, Electronic, Holiday, Jazz, Latino, Opera, Other, Pop, Reggae, Rock, Rap, Worl }
-    [JsonConverter(typeof(StringEnumConverter))]
-    public enum MusicType { Single = 1, Album }
+    public enum MusicGenre { Alternative = 1, American=2,  Comedy=3, Classical=4, Country=5, Dance=6, Electronic=7, Holiday=8, International=9, Jazz=10, Latino=11, Opera=12, Other=13, Pop=14, Reggae=15, Rock=16, Rap=17 }
+    public enum MusicType { Single = 1, Album=2 }
     public class Music
     {
         [Key]
@@ -21,26 +19,24 @@ namespace RateItData
         [Required]
         public Guid OwnerId { get; set; }
         [Required]
-        //[MaxLength(300, ErrorMessage = "Maximum character lenght required is 300 ")]
-        //[MinLength(1, ErrorMessage = "Minimum character lenght required is 1 ")]
         public string ArtistName { get; set; }
         [Required]
-        //[Range(1, 300, ErrorMessage = "Enter a valid Duration between 1 to 300 minutes")]
+        [Display(Name = "Duration In Minutes")]
         public decimal Duration { get; set; }
         [Required]
-        //[Range(2000, 2020, ErrorMessage = "Enter a valid year")]
+        [Display(Name = "DateRelease")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateRelease { get; set; }
         [Required]
-        [JsonConverter(typeof(StringEnumConverter))]
         public MusicGenre GenreOfMusic { get; set; }
         [Required]
-        [JsonConverter(typeof(StringEnumConverter))]
         public MusicType TypeOfMusic { get; set; }
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
         public int ReviewId { get; set; }
-        [ForeignKey(nameof(ReviewId))]
-        public virtual Review Review { get; set; }
+        //[ForeignKey(nameof(ReviewId))]
+        //public virtual Review Review { get; set; }
     }
 }

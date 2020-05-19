@@ -60,9 +60,8 @@ namespace RateIt.Controllers
                 ShowName = detail.ShowName,
                 DirectorName = detail.DirectorName,
                 Duration = detail.Duration,
-                DateRelease = detail.DateRelease,
                 GenreOfShow = detail.GenreOfShow,
-                TypeOfShow = detail.TypeOfShow
+                DateRelease = detail.DateRelease
             };
             return View(model);
         }

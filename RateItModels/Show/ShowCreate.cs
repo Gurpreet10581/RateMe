@@ -20,14 +20,18 @@ namespace RateItModels.Show
         public string DirectorName { get; set; }
         [Required]
         [Range(1, 300, ErrorMessage = "Enter a valid Duration between 1 to 300 minutes")]
+        [Display(Name = "Duration In Minutes")]
         public decimal Duration { get; set; }
         [Required]
-        [Range(2000, 2020, ErrorMessage = "Enter a valid year")]
+        [Display(Name = "DateRelease")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateRelease { get; set; }
         [Required]
         public ShowGenre GenreOfShow { get; set; }
         [Required]
-        public ShowType TypeOfShow { get; set; }
-        public int ReviewId { get; set; }
+        public DateTimeOffset CreatedUtc { get; set; }
+
+        //public int ReviewId { get; set; }
     }
 }

@@ -21,10 +21,12 @@ namespace RateItModels.Show
         [MinLength(1, ErrorMessage = "Minimum character lenght required is 1 ")]
         public string DirectorName { get; set; }
         [Range(1, 300, ErrorMessage = "Enter a valid Duration between 1 to 300 minutes")]
+        [Display(Name = "Duration In Minutes")]
         public decimal Duration { get; set; }
-        [Range(2000, 2020, ErrorMessage = "Enter a valid year")]
+        [Display(Name = "DateRelease")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateRelease { get; set; }
         public ShowGenre GenreOfShow { get; set; }
-        public ShowType TypeOfShow { get; set; }
     }
 }
