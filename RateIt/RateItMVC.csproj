@@ -243,12 +243,24 @@
     <Content Include="Views\Review\Details.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\Review\Delete.cshtml" />
+    <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\Create.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
+    <Content Include="Views\Movie\Edit.cshtml" />
+    <Content Include="Views\Movie\Delete.cshtml" />
+    <Content Include="Views\Music\Index.cshtml" />
+    <Content Include="Views\Music\Create.cshtml" />
+    <Content Include="Views\Music\Details.cshtml" />
+    <Content Include="Views\Music\Edit.cshtml" />
+    <Content Include="Views\Music\Delete.cshtml" />
+    <Content Include="Views\Show\Index.cshtml" />
+    <Content Include="Views\Show\Create.cshtml" />
+    <Content Include="Views\Show\Details.cshtml" />
+    <Content Include="Views\Show\Edit.cshtml" />
+    <Content Include="Views\Show\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Movie\" />
-    <Folder Include="Views\Music\" />
-    <Folder Include="Views\Show\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

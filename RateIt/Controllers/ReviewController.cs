@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
+using RateIt.Data;
+using RateIt.Models;
 using RateItModels.Movie;
 using RateItModels.Review;
 using RateItServices;
@@ -13,13 +15,12 @@ namespace RateIt.Controllers
 {
     public class ReviewController : Controller
     {
-        // GET: Review
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ReviewService(userId);
             var model = service.GetReviews();
-            return View();
+            return View(model);
         }
         public ActionResult Create()
         {
@@ -93,7 +94,7 @@ namespace RateIt.Controllers
         {
             var service = CreateReviewService();
             service.DeleteReview(id);
-            TempData["SaveResult"] = "Your note was deleted";
+            TempData["SaveResult"] = "Your review was deleted";
 
             return RedirectToAction("Index");
         }
