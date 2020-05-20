@@ -10,7 +10,7 @@ namespace RateItModels.Movie
 {
     public class MovieListItem
     {
-        public int ReviewId { get; set; }
+        //public int ReviewId { get; set; }
         [Required]
         public int MovieId { get; set; }
         public string MovieName { get; set; }

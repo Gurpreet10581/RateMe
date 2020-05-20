@@ -1,5 +1,6 @@
 ﻿using RateIt.Data;
 using RateItData;
+using RateItModels.Review;
 using RateItModels.Show;
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,29 @@ namespace RateItServices
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
+            }
+        }
+        public IEnumerable<ReviewListItem> GetReveiwsByShowId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Reviews
+                    .Where(e => e.ShowId == id && e.OwnerId == _userId)
+                    .Select(
+                                e =>
+                                new ReviewListItem
+                                {
+                                    ReviewId = e.ReviewId,
+                                    ShowId = e.ShowId,
+                                    Content = e.Content,
+                                    Rating = e.Rating,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToArray();
+
             }
         }
         public bool UpdateShow(ShowEdit model)

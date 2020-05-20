@@ -1,6 +1,7 @@
 ﻿using RateIt.Data;
 using RateItData;
 using RateItModels.Music;
+using RateItModels.Review;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,6 +80,29 @@ namespace RateItServices
                         CreatedUtc = entity.CreatedUtc,
                         ModifiedUtc = entity.ModifiedUtc
                     };
+            }
+        }
+        public IEnumerable<ReviewListItem> GetReveiwsByMusicId(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Reviews
+                    .Where(e => e.MusicId == id && e.OwnerId == _userId)
+                    .Select(
+                                e =>
+                                new ReviewListItem
+                                {
+                                    ReviewId = e.ReviewId,
+                                    MusicId = e.MusicId,
+                                    Content = e.Content,
+                                    Rating = e.Rating,
+                                    CreatedUtc = e.CreatedUtc
+                                }
+                        );
+                return query.ToArray();
+
             }
         }
         public bool UpdateMusic(MusicEdit model)

@@ -16,7 +16,12 @@ namespace RateItModels.Review
         [Required]
         [Range(1, 5, ErrorMessage = "Enter a rating on a scale of 1-5")]
         public int Rating { get; set; }
+        public int? MovieId { get; set; }
+        public int? ShowId { get; set; }
+        public int? MusicId { get; set; }
         public DateTimeOffset CreatedUtc { get; set; }
+
+
 
 
     }

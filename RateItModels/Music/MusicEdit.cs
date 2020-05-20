@@ -10,7 +10,7 @@ namespace RateItModels.Music
 {
     public class MusicEdit
     {
-        public int ReviewId { get; set; }
+        //public int ReviewId { get; set; }
         [Required]
         public int MusicId { get; set; }
         [MaxLength(300, ErrorMessage = "Maximum character lenght required is 300 ")]

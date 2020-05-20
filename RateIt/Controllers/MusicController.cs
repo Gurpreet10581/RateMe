@@ -38,6 +38,8 @@ namespace RateIt.Controllers
             if (service.CreateMusic(model))
             {
                 TempData["SaveResult"] = "Your Music was created";
+                return RedirectToAction("Index");
+
             };
             ModelState.AddModelError("", "Music could not be created");
             return View(model);
@@ -69,7 +71,7 @@ namespace RateIt.Controllers
         public ActionResult Edit(int id, MusicEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-            if (model.ReviewId != id)
+            if (model.MusicId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
             }

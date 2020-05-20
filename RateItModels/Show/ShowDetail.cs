@@ -10,7 +10,7 @@ namespace RateItModels.Show
 {
     public class ShowDetail
     {
-        public int ReviewId { get; set; }
+        //public int ReviewId { get; set; }
         [Required]
         public int ShowId { get; set; }
         public string ShowName { get; set; }

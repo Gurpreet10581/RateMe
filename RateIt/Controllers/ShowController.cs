@@ -39,6 +39,8 @@ namespace RateIt.Controllers
             if (service.CreateShow(model))
             {
                 TempData["SaveResult"] = "Your show was created";
+                return RedirectToAction("Index");
+
             };
             ModelState.AddModelError("", "Show could not be created");
             return View(model);
@@ -70,7 +72,7 @@ namespace RateIt.Controllers
         public ActionResult Edit(int id, ShowEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-            if (model.ReviewId != id)
+            if (model.ShowId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
             }

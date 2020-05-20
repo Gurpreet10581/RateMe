@@ -10,7 +10,7 @@ namespace RateItModels.Show
 {
     public class ShowEdit
     {
-        public int ReviewId { get; set; }
+        //public int ReviewId { get; set; }
         [Required]
         public int ShowId { get; set; }
         [MaxLength(300, ErrorMessage = "Maximum character lenght required is 300 ")]

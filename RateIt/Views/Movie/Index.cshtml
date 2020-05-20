@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ReviewId)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.MovieId)
         </th>
         <th>
@@ -40,9 +37,6 @@
 
 @foreach (var item in Model) {
 <tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ReviewId)
-    </td>
     <td>
         @Html.DisplayFor(modelItem => item.MovieId)
     </td>

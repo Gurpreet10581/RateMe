@@ -10,7 +10,7 @@ namespace RateItModels.Music
 {
     public class MusicListItem
     {
-        public int ReviewId { get; set; }
+        //public int ReviewId { get; set; }
         [Required]
         public int MusicId { get; set; }
         public string ArtistName { get; set; }

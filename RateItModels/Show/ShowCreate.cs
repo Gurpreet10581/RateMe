@@ -19,7 +19,6 @@ namespace RateItModels.Show
         [MinLength(1, ErrorMessage = "Minimum character lenght required is 1 ")]
         public string DirectorName { get; set; }
         [Required]
-        [Range(1, 300, ErrorMessage = "Enter a valid Duration between 1 to 300 minutes")]
         [Display(Name = "Duration In Minutes")]
         public decimal Duration { get; set; }
         [Required]

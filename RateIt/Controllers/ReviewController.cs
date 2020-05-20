@@ -35,6 +35,8 @@ namespace RateIt.Controllers
             if (service.CreateReview(model))
             {
                 TempData["SaveResult"] = "Your Review was created";
+                return RedirectToAction("Index");
+
             };
             ModelState.AddModelError("","Review could not be created");
             return View(model);
@@ -57,7 +59,10 @@ namespace RateIt.Controllers
                 {
                     ReviewId = detail.ReviewId,
                     Content = detail.Content,
-                    Rating = detail.Rating
+                    Rating = detail.Rating,
+                    MovieId=detail.MovieId,
+                    MusicId=detail.MusicId,
+                    ShowId=detail.ShowId
 
                 };
             return View(model);

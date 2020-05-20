@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Security.Permissions;
 using System.Text;
@@ -27,5 +28,20 @@ namespace RateItData
         public DateTimeOffset CreatedUtc { get; set; }
 
         public DateTimeOffset? ModifiedUtc { get; set; }
+
+        public int? MovieId { get; set; }
+        [ForeignKey(nameof(MovieId))]
+        public virtual Movie Movie { get; set; }
+
+
+
+        public int? ShowId { get; set; }
+        [ForeignKey(nameof(ShowId))]
+        public virtual Show Show { get; set; }
+
+
+        public int? MusicId { get; set; }
+        [ForeignKey(nameof(MusicId))]
+        public virtual Music Music { get; set; }
     }
 }

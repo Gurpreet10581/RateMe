@@ -24,7 +24,10 @@ namespace RateItServices
                     OwnerId=_userId,
                     Content=model.Content,
                     Rating=model.Rating,
-                    CreatedUtc= DateTimeOffset.Now
+                    MovieId=model.MovieId,
+                    ShowId = model.ShowId,
+                    MusicId = model.MusicId,
+                    CreatedUtc = DateTimeOffset.Now
                 };
             using (var ctx = new ApplicationDbContext())
             {
@@ -47,7 +50,10 @@ namespace RateItServices
                                 ReviewId=e.ReviewId,
                                 Content=e.Content,
                                 Rating=e.Rating,
-                                CreatedUtc=e.CreatedUtc
+                                MovieId = e.MovieId,
+                                ShowId = e.ShowId,
+                                MusicId = e.MusicId,
+                                CreatedUtc =e.CreatedUtc
                             }
                         );
                 return query.ToArray();
@@ -67,7 +73,10 @@ namespace RateItServices
                         ReviewId=entity.ReviewId,
                         Content=entity.Content,
                         Rating=entity.Rating,
-                        CreatedUtc=entity.CreatedUtc,
+                        MovieId = entity.MovieId,
+                        ShowId = entity.ShowId,
+                        MusicId = entity.MusicId,
+                        CreatedUtc =entity.CreatedUtc,
                         ModifiedUtc=entity.ModifiedUtc
 
 
@@ -84,6 +93,9 @@ namespace RateItServices
                     .Single(e => e.ReviewId == model.ReviewId && e.OwnerId == _userId);
                 entity.Content = model.Content;
                 entity.Rating = model.Rating;
+                entity.MovieId = model.MovieId;
+                entity.ShowId = model.ShowId;
+                entity.MusicId = model.MusicId;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
                 return ctx.SaveChanges() == 1;
             }

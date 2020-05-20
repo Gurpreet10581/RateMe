@@ -38,6 +38,8 @@ namespace RateIt.Controllers
             if (service.CreateMovie(model))
             {
                 TempData["SaveResult"] = "Your Moive was created";
+                return RedirectToAction("Index");
+
             };
             ModelState.AddModelError("", "Movie could not be created");
             return View(model);
@@ -69,7 +71,7 @@ namespace RateIt.Controllers
         public ActionResult Edit(int id, MovieEdit model)
         {
             if (!ModelState.IsValid) return View(model);
-            if (model.ReviewId != id)
+            if (model.MovieId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
             }

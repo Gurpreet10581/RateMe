@@ -49,8 +49,6 @@ namespace RateItData
 
         public DateTimeOffset? ModifiedUtc { get; set; }
 
-        public int ReviewId { get; set; }
-        //[ForeignKey(nameof(ReviewId))]
-        //public virtual Review Review { get; set; }
+       
     }
 }
