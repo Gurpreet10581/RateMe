@@ -11,14 +11,27 @@ namespace RateItModels.Review
     {
         [Required]
         public int ReviewId { get; set; }
+
+        [Display(Name = "Min, Max, & Avg. Rating ***** ")]
         public string[,] MinMaxAvg { get; set; }
+
         [Required]
         public DateTime StartDate { get; set; }
+
         [Required]
         public DateTime EndDate { get; set; }
-        public int? MovieId { get; set; }
-        public int? ShowId { get; set; }
-        public int? MusicId { get; set; }
+
+        [Display(Name = "Rating ***** ")]
         public List<int> Ratings { get; set; }
+
+        [Display(Name = "Movie ID")]
+        public int? MovieId { get; set; }
+
+        [Display(Name = "Music ID")]
+        public int? MusicId { get; set; }
+
+        [Display(Name = "Show ID")]
+        public int? ShowId { get; set; }
     }
+
 }
