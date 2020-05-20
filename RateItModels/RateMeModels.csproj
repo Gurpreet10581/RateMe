@@ -54,10 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MovieReviewView.cs" />
     <Compile Include="Movie\MovieCreate.cs" />
     <Compile Include="Movie\MovieDetail.cs" />
     <Compile Include="Movie\MovieEdit.cs" />
     <Compile Include="Movie\MovieListItem.cs" />
+    <Compile Include="MusicReviewView.cs" />
     <Compile Include="Music\MusicCreate.cs" />
     <Compile Include="Music\MusicDetail.cs" />
     <Compile Include="Music\MusicEdit.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Review\ReviewEdit.cs" />
     <Compile Include="Review\ReviewListItem.cs" />
     <Compile Include="Review\ReviewStatistics.cs" />
+    <Compile Include="ShowReviewView.cs" />
     <Compile Include="Show\ShowCreate.cs" />
     <Compile Include="Show\ShowDetail.cs" />
     <Compile Include="Show\ShowEdit.cs" />

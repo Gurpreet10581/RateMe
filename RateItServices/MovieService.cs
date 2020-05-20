@@ -83,7 +83,7 @@ namespace RateItServices
             }
         }
 
-        public IEnumerable<ReviewListItem> GetReveiwsByMovieId(int id)
+        public IEnumerable<ReviewDetail> GetReveiwsByMovieId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -93,13 +93,15 @@ namespace RateItServices
                     .Where(e => e.MovieId == id && e.OwnerId == _userId)
                     .Select(
                                 e=>
-                                new ReviewListItem
+                                new ReviewDetail
                                 {
                                     ReviewId=e.ReviewId,
                                     MovieId=e.MovieId,
                                     Content=e.Content,
                                     Rating=e.Rating,
-                                    CreatedUtc=e.CreatedUtc
+                                    CreatedUtc=e.CreatedUtc,
+                                    ModifiedUtc=e.ModifiedUtc
+                                   
                                 }
                         );
                 return query.ToArray();

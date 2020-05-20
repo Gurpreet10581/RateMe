@@ -82,7 +82,7 @@ namespace RateItServices
                     };
             }
         }
-        public IEnumerable<ReviewListItem> GetReveiwsByMusicId(int id)
+        public IEnumerable<ReviewDetail> GetReveiwsByMusicId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -92,13 +92,14 @@ namespace RateItServices
                     .Where(e => e.MusicId == id && e.OwnerId == _userId)
                     .Select(
                                 e =>
-                                new ReviewListItem
+                                new ReviewDetail
                                 {
                                     ReviewId = e.ReviewId,
                                     MusicId = e.MusicId,
                                     Content = e.Content,
                                     Rating = e.Rating,
-                                    CreatedUtc = e.CreatedUtc
+                                    CreatedUtc = e.CreatedUtc,
+                                    ModifiedUtc=e.ModifiedUtc
                                 }
                         );
                 return query.ToArray();

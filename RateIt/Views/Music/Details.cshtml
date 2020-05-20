@@ -1,4 +1,4 @@
-﻿@model RateItModels.Music.MusicDetail
+﻿@model RateItModels.MusicReviewView
 
 @{
     ViewBag.Title = "Details";
@@ -10,74 +10,124 @@
     <h4>MusicDetail</h4>
     <hr />
     <dl class="dl-horizontal">
-       
+
         <dt>
-            @Html.DisplayNameFor(model => model.MusicId)
+            @Html.DisplayNameFor(model => model.Music.MusicId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MusicId)
+            @Html.DisplayFor(model => model.Music.MusicId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ArtistName)
+            @Html.DisplayNameFor(model => model.Music.ArtistName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ArtistName)
+            @Html.DisplayFor(model => model.Music.ArtistName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Duration)
+            @Html.DisplayNameFor(model => model.Music.Duration)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Duration)
+            @Html.DisplayFor(model => model.Music.Duration)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GenreOfMusic)
+            @Html.DisplayNameFor(model => model.Music.GenreOfMusic)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GenreOfMusic)
+            @Html.DisplayFor(model => model.Music.GenreOfMusic)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TypeOfMusic)
+            @Html.DisplayNameFor(model => model.Music.TypeOfMusic)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.TypeOfMusic)
+            @Html.DisplayFor(model => model.Music.TypeOfMusic)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateRelease)
+            @Html.DisplayNameFor(model => model.Music.DateRelease)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DateRelease)
+            @Html.DisplayFor(model => model.Music.DateRelease)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
+            @Html.DisplayNameFor(model => model.Music.CreatedUtc)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
+            @Html.DisplayFor(model => model.Music.CreatedUtc)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
+            @Html.DisplayNameFor(model => model.Music.ModifiedUtc)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
+            @Html.DisplayFor(model => model.Music.ModifiedUtc)
         </dd>
 
     </dl>
 </div>
+
+@foreach (var review in Model.Reviews)
+{
+    <div>
+        <h4>ReviewDetail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => review.ReviewId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.ReviewId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.Content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.Rating)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.Rating)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.ModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.ModifiedUtc)
+            </dd>
+
+        </dl>
+    </div>
+}
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MusicId }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Music.MusicId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

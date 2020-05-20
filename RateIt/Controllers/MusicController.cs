@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using RateIt.Data;
 using RateIt.Models;
+using RateItModels;
 using RateItModels.Movie;
 using RateItModels.Music;
 using RateItModels.Review;
@@ -48,8 +49,12 @@ namespace RateIt.Controllers
         public ActionResult Details(int id)
         {
             var svc = CreateMusicService();
-            var model = svc.GetMusicById(id);
-            return View(model);
+            MusicReviewView movieReviewView = new MusicReviewView();
+
+            movieReviewView.Music = svc.GetMusicById(id);
+            movieReviewView.Reviews = svc.GetReveiwsByMusicId(id);
+
+            return View(movieReviewView);
         }
 
         public ActionResult Edit(int id)

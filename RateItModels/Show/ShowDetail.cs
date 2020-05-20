@@ -15,8 +15,10 @@ namespace RateItModels.Show
         public int ShowId { get; set; }
         public string ShowName { get; set; }
         public string DirectorName { get; set; }
+
         [Display(Name = "Duration In Minutes")]
         public decimal Duration { get; set; }
+
         [Display(Name ="DateRelease")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

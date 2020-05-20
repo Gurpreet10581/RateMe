@@ -1,4 +1,4 @@
-﻿@model RateItModels.Movie.MovieDetail
+﻿@model RateItModels.MovieReviewView
 
 @{
     ViewBag.Title = "Details";
@@ -11,69 +11,120 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.MovieId)
+            @Html.DisplayNameFor(model => model.Movie.MovieId)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MovieId)
+            @Html.DisplayFor(model => model.Movie.MovieId)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MovieName)
+            @Html.DisplayNameFor(model => model.Movie.MovieName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MovieName)
+            @Html.DisplayFor(model => model.Movie.MovieName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DirectorName)
+            @Html.DisplayNameFor(model => model.Movie.DirectorName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DirectorName)
+            @Html.DisplayFor(model => model.Movie.DirectorName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Duration)
+            @Html.DisplayNameFor(model => model.Movie.Duration)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Duration)
+            @Html.DisplayFor(model => model.Movie.Duration)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DateRelease)
+            @Html.DisplayNameFor(model => model.Movie.DateRelease)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.DateRelease)
+            @Html.DisplayFor(model => model.Movie.DateRelease)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.GenreOfMovie)
+            @Html.DisplayNameFor(model => model.Movie.GenreOfMovie)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.GenreOfMovie)
+            @Html.DisplayFor(model => model.Movie.GenreOfMovie)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
+            @Html.DisplayNameFor(model => model.Movie.CreatedUtc)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreatedUtc)
+            @Html.DisplayFor(model => model.Movie.CreatedUtc)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ModifiedUtc)
+            @Html.DisplayNameFor(model => model.Movie.ModifiedUtc)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ModifiedUtc)
+            @Html.DisplayFor(model => model.Movie.ModifiedUtc)
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MovieId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@foreach (var review in Model.Reviews)
+{
+    <div>
+        <h4>ReviewDetail</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => review.ReviewId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.ReviewId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.Content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.Content)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.Rating)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.Rating)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.CreatedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.CreatedUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => review.ModifiedUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => review.ModifiedUtc)
+            </dd>
+
+        </dl>
+    </div>
+}
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Movie.MovieId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
