@@ -116,6 +116,7 @@ namespace RateItServices
                     .Single(e => e.ShowId == model.ShowId && e.OwnerId == _userId);
                 entity.ShowName = model.ShowName;
                 entity.DirectorName = model.DirectorName;
+                entity.Duration = model.Duration;
                 entity.DateRelease = model.DateRelease;
                 entity.GenreOfShow = model.GenreOfShow;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;

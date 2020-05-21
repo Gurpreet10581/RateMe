@@ -15,8 +15,6 @@ namespace RateItModels.Movie
         public int MovieId { get; set; }
 
         [Display(Name = "Movie Name")]
-        [Remote("IsMovieNameExist", "Movie", AdditionalFields = "Id",
-                ErrorMessage = "Moview name already exists")]
         [MaxLength(300, ErrorMessage = "Maximum character lenght required is 300 ")]
         [MinLength(1, ErrorMessage = "Minimum character lenght required is 1 ")]
         public string MovieName { get; set; }

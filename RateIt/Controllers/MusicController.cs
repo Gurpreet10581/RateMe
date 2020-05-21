@@ -63,6 +63,7 @@ namespace RateIt.Controllers
             var detail = service.GetMusicById(id);
             var model = new MusicEdit
             {
+                MusicId=detail.MusicId,
                 ArtistName = detail.ArtistName,
                 Duration = detail.Duration,
                 DateRelease = detail.DateRelease,

@@ -66,6 +66,7 @@ namespace RateIt.Controllers
             var detail = service.GetShowById(id);
             var model = new ShowEdit
             {
+                ShowId=detail.ShowId,
                 ShowName = detail.ShowName,
                 DirectorName = detail.DirectorName,
                 Duration = detail.Duration,

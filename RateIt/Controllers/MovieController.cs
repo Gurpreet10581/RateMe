@@ -64,6 +64,7 @@ namespace RateIt.Controllers
             var detail = service.GetMovieById(id);
             var model = new MovieEdit
             {
+                MovieId=detail.MovieId,
                 MovieName = detail.MovieName,
                 DirectorName = detail.DirectorName,
                 Duration = detail.Duration,

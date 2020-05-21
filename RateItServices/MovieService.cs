@@ -118,6 +118,7 @@ namespace RateItServices
                     .Single(e => e.MovieId == model.MovieId && e.OwnerId == _userId);
                 entity.MovieName = model.MovieName;
                 entity.DirectorName = model.DirectorName;
+                entity.Duration = model.Duration;
                 entity.DateRelease = model.DateRelease;
                 entity.GenreOfMovie = model.GenreOfMovie;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;

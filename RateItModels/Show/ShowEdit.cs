@@ -15,8 +15,6 @@ namespace RateItModels.Show
         public int ShowId { get; set; }
 
         [Display(Name = "Show Name")]
-        [Remote("IsShowNameExist", "Show", AdditionalFields = "Id",
-                ErrorMessage = "Show name already exists")]
         [MaxLength(300, ErrorMessage = "Maximum character lenght required is 300 ")]
         [MinLength(1, ErrorMessage = "Minimum character lenght required is 1 ")]
         public string ShowName { get; set; }
@@ -30,7 +28,7 @@ namespace RateItModels.Show
 
 
         [Display(Name = "Duration In Minutes")]
-        [Range(1, 300, ErrorMessage = "Enter a valid Duration between 1 to 300 minutes")]
+        [Range(1, 5000, ErrorMessage = "Enter a valid Duration between 1 to 300 minutes")]
         public decimal Duration { get; set; }
 
 
