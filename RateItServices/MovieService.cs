@@ -1,5 +1,6 @@
 ﻿using RateIt.Data;
 using RateItData;
+using RateItModels;
 using RateItModels.Movie;
 using RateItModels.Review;
 using System;
@@ -108,6 +109,44 @@ namespace RateItServices
                
             }
         }
+
+
+        //public IEnumerable<ReviewDetail> GetRatingsByMovieId()
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var query =
+        //            ctx
+        //            .Reviews
+        //            .GroupBy(e => 1)
+        //            .Select(
+        //                        e =>
+        //                        new ReviewDetail
+        //                        {
+        //                            MovieId = e.MovieId,
+        //                            Rating = e.Rating(e=>1),
+        //                        }
+        //                );
+        //        return query.ToArray();
+
+        //    }
+        //}
+
+        //public MovieRatingView GetMinMaxAvg(MovieRatingView model)
+        //{
+
+
+        //    string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "" } };
+
+        //    MinMaxAvg[0, 1] = model.Ratings.Max().ToString();  //Sets Max Value
+        //    MinMaxAvg[1, 1] = model.Ratings.Min().ToString(); //Sets Min Value
+        //    MinMaxAvg[2, 1] = model.Ratings.Average().ToString(); //Sets Average Value
+        //    model.MinMaxAvg = MinMaxAvg;
+        //    model.MovieId = _userId;
+        //    return model;
+
+
+        //}
         public bool UpdateMovie(MovieEdit model)
         {
             using (var ctx = new ApplicationDbContext())

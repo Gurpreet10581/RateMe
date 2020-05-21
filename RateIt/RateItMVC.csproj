@@ -192,6 +192,7 @@
     <Content Include="Content\Image\Background 2.jpg" />
     <Content Include="Content\Image\Background 3.jpg" />
     <Content Include="Content\Image\Background.jpg" />
+    <Content Include="Content\Image\Logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
