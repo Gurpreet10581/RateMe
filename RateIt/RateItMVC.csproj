@@ -187,7 +187,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Image\2275.jpg" />
+    <Content Include="Content\Image\2282.jpg" />
     <Content Include="Content\Image\Background 2.jpg" />
+    <Content Include="Content\Image\Background 3.jpg" />
     <Content Include="Content\Image\Background.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
