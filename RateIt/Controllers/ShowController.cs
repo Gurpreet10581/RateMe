@@ -18,6 +18,8 @@ namespace RateIt.Controllers
 {
     public class ShowController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         // GET: Movie
         public ActionResult Index()
         {
@@ -108,6 +110,19 @@ namespace RateIt.Controllers
 
             return RedirectToAction("Index");
         }
+        public JsonResult IsShowNameExist(string showName, int? Id)
+        {
+            var validateName =db.Shows.FirstOrDefault
+                                (x => x.ShowName == showName && x.ShowId != Id);
+            if (validateName != null)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
+        }
 
         private ShowService CreateShowService()
         {
@@ -115,5 +130,6 @@ namespace RateIt.Controllers
             var service = new ShowService(userId);
             return service;
         }
+
     }
 }

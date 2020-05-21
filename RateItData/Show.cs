@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace RateItData
 {
@@ -21,6 +22,8 @@ namespace RateItData
         public Guid OwnerId { get; set; }
 
         [Required]
+        [Remote("IsShowNameExist", "Show", AdditionalFields = "Id",
+                ErrorMessage = "Show name already exists")]
         public string ShowName { get; set; }
 
         [Required]

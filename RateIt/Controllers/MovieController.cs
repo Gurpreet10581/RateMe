@@ -17,6 +17,7 @@ namespace RateIt.Controllers
 {
     public class MovieController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         // GET: Movie
         public ActionResult Index()
         {
@@ -106,6 +107,21 @@ namespace RateIt.Controllers
             TempData["SaveResult"] = "Your movie was deleted";
 
             return RedirectToAction("Index");
+        }
+
+
+        public JsonResult IsMovieNameExist(string movieName, int? Id)
+        {
+            var validateName = db.Movies.FirstOrDefault
+                                (x => x.MovieName == movieName && x.MovieId != Id);
+            if (validateName != null)
+            {
+                return Json(false, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }
         }
 
         private MovieService CreateMovieService()

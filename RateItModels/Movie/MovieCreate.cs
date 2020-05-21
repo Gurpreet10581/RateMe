@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace RateItModels.Movie
 {
@@ -12,6 +13,8 @@ namespace RateItModels.Movie
     {
         [Required]
         [Display(Name = "Movie Name")]
+        [Remote("IsMovieNameExist", "Movie", AdditionalFields = "Id",
+                ErrorMessage = "Moview name already exists")]
         [MaxLength(300, ErrorMessage = "Maximum character lenght required is 300 ")]
         [MinLength(1, ErrorMessage = "Minimum character lenght required is 1 ")]
         public string MovieName { get; set; }
