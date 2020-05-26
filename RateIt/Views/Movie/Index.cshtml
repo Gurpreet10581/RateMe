@@ -5,10 +5,10 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Movie Index</h2>
 
-<p style="font-size:x-large;">
-    @Html.ActionLink("Create New", "Create")
+<p style="font-size:large; ">
+    @Html.ActionLink("Create A New Movie", "Create")
 </p>
 <table class="table" style="color:black; font-size: 20px;">
     <tr>
@@ -60,7 +60,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
-            <td>
+            <td >
                 @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })

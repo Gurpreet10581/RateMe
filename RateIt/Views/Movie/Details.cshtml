@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detail</h2>
 
 <div style="color:black; font-size: 20px;" >
-    <h4>MovieDetail</h4>
+    <h4>Movie Detail</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -127,10 +127,10 @@
     </div>
 }
 
-<p>
+<p style="font-size:large;">
 
     @Html.ActionLink("Edit", "Edit", new { id = Model.Movie.MovieId }) |
-    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Back to List", "AllMovies") |
     @Html.ActionLink("Create Review", "Create", "Review", new { ID = Model.Movie.MovieId }, null)
 
 </p>

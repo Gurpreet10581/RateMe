@@ -78,7 +78,7 @@
         < @Html.ActionLink("RateMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Home", "Index", "Home")
         <button class="dropdown-btn">
-            Add Here
+            Start Here
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-container">
@@ -86,16 +86,17 @@
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li>@Html.ActionLink("Review", "Index", "Review")</li>
-                    <li>@Html.ActionLink("Movie", "Index", "Movie")</li>
-                    <li>@Html.ActionLink("Music", "Index", "Music")</li>
-                    <li>@Html.ActionLink("Show", "Index", "Show")</li>
                     <li>
                         @Html.ActionLink("See All Reviews", "AllReviews", "Review")
                     </li>
                     <li>@Html.ActionLink("See All Movies", "AllMovies", "Movie")</li>
                     <li>@Html.ActionLink("See All Music", "AllMusic", "Music")</li>
                     <li>@Html.ActionLink("See All Shows", "AllShows", "Show")</li>
+
+                    <li>@Html.ActionLink("My Review", "Index", "Review")</li>
+                    <li>@Html.ActionLink("My Movie", "Index", "Movie")</li>
+                    <li>@Html.ActionLink("My Music", "Index", "Music")</li>
+                    <li>@Html.ActionLink("My Show", "Index", "Show")</li>
                 }
 
             </ul>
@@ -105,12 +106,12 @@
             @Html.Partial("_LoginPartial")
     </div>
 
-    <div class="main">
+    @*<div class="main">
         <h2>Please Select Your Option from Sidebar ==></h2>
-        <p>Click The Dropdown "Add Here" to see your options </p>
+        <p>Click The Dropdown "Start Here" to see your options </p>
 
         
-    </div>
+    </div>*@
 
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");
