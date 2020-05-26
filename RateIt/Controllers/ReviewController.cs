@@ -22,10 +22,23 @@ namespace RateIt.Controllers
             var model = service.GetReviews();
             return View(model);
         }
+
+        public ActionResult AllReviews()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ReviewService(userId);
+            var model = service.GeAllReviews();
+            return View(model);
+        }
+
         public ActionResult Create(int ID)
         {
             ViewBag.ID = ID;
             return View(new ReviewCreate());
+        }
+        public ActionResult CreateReview()
+        {
+            return View();
         }
 
         [HttpPost]

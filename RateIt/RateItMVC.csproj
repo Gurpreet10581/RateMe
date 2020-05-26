@@ -269,6 +269,7 @@
     <Content Include="Views\Review\CreateMusicReview.cshtml" />
     <Content Include="Views\Music\AllMusic.cshtml" />
     <Content Include="Views\Show\AllShows.cshtml" />
+    <Content Include="Views\Review\AllReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

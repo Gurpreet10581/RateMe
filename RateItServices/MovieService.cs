@@ -92,7 +92,7 @@ namespace RateItServices
                 var entity =
                     ctx
                     .Movies
-                    .Single(e => e.MovieId == id && e.OwnerId == _userId);
+                    .Single(e => e.MovieId == id /*&& e.OwnerId == _userId*/);
                 return
                     new MovieDetail
                     {
@@ -169,6 +169,7 @@ namespace RateItServices
                 entity.DateRelease = model.DateRelease;
                 entity.GenreOfMovie = model.GenreOfMovie;
                 entity.ModifiedUtc = DateTimeOffset.UtcNow;
+                
                 return ctx.SaveChanges() == 1;
             }
         }

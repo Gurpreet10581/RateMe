@@ -59,6 +59,29 @@ namespace RateItServices
                 return query.ToArray();
             }
         }
+        public IEnumerable<ReviewListItem> GeAllReviews()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Reviews
+                    .Select(
+                            e =>
+                            new ReviewListItem
+                            {
+                                ReviewId = e.ReviewId,
+                                Content = e.Content,
+                                Rating = e.Rating,
+                                MovieId = e.MovieId,
+                                ShowId = e.ShowId,
+                                MusicId = e.MusicId,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
         public ReviewDetail GetReviewById(int id)
         {
             using (var ctx = new ApplicationDbContext())

@@ -53,9 +53,8 @@
             @Html.DisplayFor(modelItem => item.CreatedUtc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.MovieId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MovieId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MovieId})
+            @Html.ActionLink("Details", "Details", new { id=item.MovieId }) 
+           
         </td>
     </tr>
 }

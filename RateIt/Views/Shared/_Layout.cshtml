@@ -83,15 +83,21 @@
         </button>
         <div class="dropdown-container">
             <ul class="nav navbar-nav">
+
                 @if (User.Identity.IsAuthenticated)
                 {
                     <li>@Html.ActionLink("Review", "Index", "Review")</li>
                     <li>@Html.ActionLink("Movie", "Index", "Movie")</li>
-
                     <li>@Html.ActionLink("Music", "Index", "Music")</li>
                     <li>@Html.ActionLink("Show", "Index", "Show")</li>
+                    <li>
+                        @Html.ActionLink("See All Reviews", "AllReviews", "Review")
+                    </li>
+                    <li>@Html.ActionLink("See All Movies", "AllMovies", "Movie")</li>
+                    <li>@Html.ActionLink("See All Music", "AllMusic", "Music")</li>
+                    <li>@Html.ActionLink("See All Shows", "AllShows", "Show")</li>
                 }
-               
+
             </ul>
         </div>
                     @Html.ActionLink("About", "About", "Home")
