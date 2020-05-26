@@ -60,6 +60,29 @@ namespace RateItServices
                 return query.ToArray();
             }
         }
+        public IEnumerable<ShowListItem> GetAllShows()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Shows
+                    .Select(
+                            e =>
+                            new ShowListItem
+                            {
+                                ShowId = e.ShowId,
+                                ShowName = e.ShowName,
+                                DirectorName = e.DirectorName,
+                                Duration = e.Duration,
+                                GenreOfShow = e.GenreOfShow,
+                                DateRelease = e.DateRelease,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
         public ShowDetail GetShowById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -105,6 +128,24 @@ namespace RateItServices
                 return query.ToArray();
 
             }
+        }
+        public double GetRatingAvgByShowId(int id)
+        {
+            var ListofReviews = GetReveiwsByShowId(id);
+            List<int> ListofRatings = new List<int>();
+            if (ListofReviews.Count() != 0)
+            {
+                foreach (var review in ListofReviews)
+                {
+                    ListofRatings.Add(review.Rating);
+
+                }
+                return ListofRatings.Average();
+
+            }
+            else return 0;
+
+
         }
         public bool UpdateShow(ShowEdit model)
         {

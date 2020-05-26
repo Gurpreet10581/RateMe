@@ -6,7 +6,7 @@
 
 <h2>Details</h2>
 
-<div style="color:black; font-size: 20px;" >
+<div style="color:black; font-size: 20px;">
     <h4>MusicDetail</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -78,6 +78,9 @@
     </dl>
 </div>
 
+<p style="font-size: x-large;">Avg Rating***** @ViewBag.AverageRating</p>
+<hr />
+
 @foreach (var review in Model.Reviews)
 {
     <div>
@@ -129,5 +132,7 @@
 }
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Music.MusicId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Create Review", "CreateMusicReview", "Review", new { ID = Model.Music.MusicId }, null)
+
 </p>

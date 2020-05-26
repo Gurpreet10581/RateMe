@@ -114,53 +114,6 @@ namespace RateItServices
                 return ctx.SaveChanges() == 1;
             }
         }
-        //public List<int> GetListOfRatings()
-        //{
-        //    List<int> ListOfRatings = new List<int>();
-
-        //    IEnumerable<ReviewListItem> ListOfRating = GetReviews();
-
-        //    foreach (ReviewListItem rating in ListOfRatings)
-        //    {
-        //        ListOfRatings.Add(rating.Ratings);
-        //    }
-        //    return ListOfRatings;
-
-        //}
-        //public ReviewStatistics GetMinMaxAvg(ReviewStatistics model)
-        //{
-
-
-        //    string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "" } };
-
-        //    MinMaxAvg[0, 1] = model.Ratings.Max().ToString();  //Sets Max Value
-        //    MinMaxAvg[1, 1] = model.Ratings.Min().ToString(); //Sets Min Value
-        //    MinMaxAvg[2, 1] = model.Ratings.Average().ToString(); //Sets Average Value
-        //    model.MinMaxAvg = MinMaxAvg;
-        //    model.ReviewId = _userId;
-        //    return model;
-
-
-        //}
-        //public ReviewStatistics GetListOfRatingByDate(DateTime start, DateTime end)
-        //{
-        //    ReviewStatistics model = new ReviewStatistics();
-        //    List<int> GetListOfRatings = new List<int>();
-        //    model.StartDate = start;
-        //    model.EndDate = end;
-
-        //    IEnumerable<ReviewListItem> ListOfRatings = GetReviews();
-
-        //    foreach (ReviewListItem rating in ListOfRatings)
-        //    {
-        //        if (rating.CreatedUtc.Date >= start && rating.CreatedUtc.Date <= end)
-        //        {
-        //            ListOfRatings.Add(rating.Ratings);
-        //        }
-        //    }
-        //    model.Ratings = ListOfRatings;
-        //    return model;
-        //}
-
+        
     }
 }

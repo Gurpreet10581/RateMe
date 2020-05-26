@@ -22,10 +22,12 @@ namespace RateIt.Controllers
             var model = service.GetReviews();
             return View(model);
         }
-        public ActionResult Create()
+        public ActionResult Create(int ID)
         {
-            return View();
+            ViewBag.ID = ID;
+            return View(new ReviewCreate());
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ReviewCreate model)
@@ -42,6 +44,52 @@ namespace RateIt.Controllers
             return View(model);
 
         }
+
+        public ActionResult CreateMusicReview(int ID)
+        {
+            ViewBag.ID = ID;
+            return View(new ReviewCreate());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateMusicReview(ReviewCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            var service = CreateReviewService();
+            if (service.CreateReview(model))
+            {
+                TempData["SaveResult"] = "Your Review was created";
+                return RedirectToAction("Index");
+
+            };
+            ModelState.AddModelError("", "Review could not be created");
+            return View(model);
+
+        }
+
+
+        public ActionResult CreateShowReview(int ID)
+        {
+            ViewBag.ID = ID;
+            return View(new ReviewCreate());
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateShowReview(ReviewCreate model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            var service = CreateReviewService();
+            if (service.CreateReview(model))
+            {
+                TempData["SaveResult"] = "Your Review was created";
+                return RedirectToAction("Index");
+
+            };
+            ModelState.AddModelError("", "Review could not be created");
+            return View(model);
+
+        }
+
 
         public ActionResult Details(int id)
         {

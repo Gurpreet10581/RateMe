@@ -1,22 +1,18 @@
 ﻿@model RateItModels.Review.ReviewCreate
 
 @{
-    ViewBag.Title = "Create";
-    Model.MovieId = ViewBag.ID;
-
-
+    ViewBag.Title = "CreateShowReview";
+    Model.ShowId = ViewBag.ID;
 }
 
-<h2>Create</h2>
-
+<h2>CreateShowReview</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.MovieId)
+    @Html.HiddenFor(model => model.ShowId)
 
-
-    <div class="form-horizontal" style="color:black; font-size: 20px;">
+    <div class="form-horizontal">
         <h4>ReviewCreate</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -35,6 +31,7 @@
                 @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -48,5 +45,7 @@
 </div>
 
 @section Scripts {
+
     @Scripts.Render("~/bundles/jqueryval")
+
 }

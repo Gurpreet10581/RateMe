@@ -36,5 +36,7 @@ namespace RateItModels.Music
 
         [Display(Name = "Modification Date")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+        public int? Rating { get; set; }
+
     }
 }

@@ -28,6 +28,13 @@ namespace RateIt.Controllers
             var model = service.GetShows();
             return View(model);
         }
+        public ActionResult AllShows()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new ShowService(userId);
+            var model = service.GetAllShows();
+            return View(model);
+        }
         public ActionResult Create()
         {
             return View();
@@ -56,7 +63,7 @@ namespace RateIt.Controllers
 
             showReviewView.Show = svc.GetShowById(id);
             showReviewView.Reviews = svc.GetReveiwsByShowId(id);
-
+            ViewBag.AverageRating = svc.GetRatingAvgByShowId(id);
             return View(showReviewView);
         }
 

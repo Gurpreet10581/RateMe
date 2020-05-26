@@ -35,6 +35,8 @@ namespace RateItModels.Movie
 
         [Display(Name = "Modification Date")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+        public int? Rating { get; set; }
+
 
     }
 }

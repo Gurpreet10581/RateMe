@@ -60,6 +60,29 @@ namespace RateItServices
                 return query.ToArray();
             }
         }
+        public IEnumerable<MusicListItem> GetAllMusic()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Musics
+                    .Select(
+                            e =>
+                            new MusicListItem
+                            {
+                                MusicId = e.MusicId,
+                                ArtistName = e.ArtistName,
+                                Duration = e.Duration,
+                                DateRelease = e.DateRelease,
+                                GenreOfMusic = e.GenreOfMusic,
+                                TypeOfMusic = e.TypeOfMusic,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
         public MusicDetail GetMusicById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -105,6 +128,25 @@ namespace RateItServices
                 return query.ToArray();
 
             }
+        }
+        public double GetRatingAvgByMusicId(int id)
+        {
+            var ListofReviews = GetReveiwsByMusicId(id);
+            List<int> ListofRatings = new List<int>();
+            if (ListofReviews.Count() != 0)
+            {
+                foreach (var review in ListofReviews)
+            {
+                ListofRatings.Add(review.Rating);
+
+            }
+            return ListofRatings.Average();
+
+
+            }
+            else return 0;
+
+
         }
         public bool UpdateMusic(MusicEdit model)
         {

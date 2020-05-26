@@ -25,6 +25,13 @@ namespace RateIt.Controllers
             var model = service.GetMusics();
             return View(model);
         }
+        public ActionResult AllMusic()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MusicService(userId);
+            var model = service.GetAllMusic();
+            return View(model);
+        }
         public ActionResult Create()
         {
             return View();
@@ -53,7 +60,7 @@ namespace RateIt.Controllers
 
             movieReviewView.Music = svc.GetMusicById(id);
             movieReviewView.Reviews = svc.GetReveiwsByMusicId(id);
-
+            ViewBag.AverageRating = svc.GetRatingAvgByMusicId(id);
             return View(movieReviewView);
         }
 

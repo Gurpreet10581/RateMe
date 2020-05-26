@@ -26,6 +26,13 @@ namespace RateIt.Controllers
             var model = service.GetMovies();
             return View(model);
         }
+        public ActionResult AllMovies()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new MovieService(userId);
+            var model = service.GetAllMovies();
+            return View(model);
+        }
         public ActionResult Create()
         {
             return View();
@@ -49,12 +56,13 @@ namespace RateIt.Controllers
         }
         public ActionResult Details(int id)
         {
+
             var svc = CreateMovieService();
             MovieReviewView movieReviewView = new MovieReviewView();
-            
-             movieReviewView.Movie = svc.GetMovieById(id);
-            movieReviewView.Reviews = svc.GetReveiwsByMovieId(id);
 
+            movieReviewView.Movie = svc.GetMovieById(id);
+            movieReviewView.Reviews = svc.GetReveiwsByMovieId(id);
+            ViewBag.AverageRating = svc.GetRatingAvgByMovieId(id);
             return View(movieReviewView);
         }
 
@@ -64,7 +72,7 @@ namespace RateIt.Controllers
             var detail = service.GetMovieById(id);
             var model = new MovieEdit
             {
-                MovieId=detail.MovieId,
+                MovieId = detail.MovieId,
                 MovieName = detail.MovieName,
                 DirectorName = detail.DirectorName,
                 Duration = detail.Duration,

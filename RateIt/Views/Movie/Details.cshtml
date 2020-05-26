@@ -74,6 +74,9 @@
     </dl>
 </div>
 
+<p style="font-size: x-large;">Avg Rating***** @ViewBag.AverageRating</p>
+<hr />
+
 @foreach (var review in Model.Reviews)
 {
     <div>
@@ -124,7 +127,10 @@
     </div>
 }
 
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Movie.MovieId }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+<p>
+
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Movie.MovieId }) |
+    @Html.ActionLink("Back to List", "Index") |
+    @Html.ActionLink("Create Review", "Create", "Review", new { ID = Model.Movie.MovieId }, null)
+
+</p>

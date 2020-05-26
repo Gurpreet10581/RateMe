@@ -75,7 +75,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MovieRatingView.cs" />
     <Compile Include="MovieReviewView.cs" />
     <Compile Include="Movie\MovieCreate.cs" />
     <Compile Include="Movie\MovieDetail.cs" />

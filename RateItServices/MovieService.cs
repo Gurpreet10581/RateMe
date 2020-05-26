@@ -5,6 +5,7 @@ using RateItModels.Movie;
 using RateItModels.Review;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,29 @@ namespace RateItServices
                 return query.ToArray();
             }
         }
+        public IEnumerable<MovieListItem> GetAllMovies()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Movies
+                    .Select(
+                            e =>
+                            new MovieListItem
+                            {
+                                MovieId = e.MovieId,
+                                MovieName = e.MovieName,
+                                DirectorName = e.DirectorName,
+                                Duration = e.Duration,
+                                DateRelease = e.DateRelease,
+                                GenreOfMovie = e.GenreOfMovie,
+                                CreatedUtc = e.CreatedUtc
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
         public MovieDetail GetMovieById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -110,43 +134,27 @@ namespace RateItServices
             }
         }
 
+        public double GetRatingAvgByMovieId(int id)
+        {
+            var ListofReviews = GetReveiwsByMovieId(id);
+            List<int> ListofRatings = new List<int>();
+            if (ListofReviews.Count() != 0)
+            {
+                foreach (var review in ListofReviews)
+                {
+                    ListofRatings.Add(review.Rating);
 
-        //public IEnumerable<ReviewDetail> GetRatingsByMovieId()
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //            .Reviews
-        //            .GroupBy(e => 1)
-        //            .Select(
-        //                        e =>
-        //                        new ReviewDetail
-        //                        {
-        //                            MovieId = e.MovieId,
-        //                            Rating = e.Rating(e=>1),
-        //                        }
-        //                );
-        //        return query.ToArray();
+                }
 
-        //    }
-        //}
+                return ListofRatings.Average();
 
-        //public MovieRatingView GetMinMaxAvg(MovieRatingView model)
-        //{
+            }
+            else return 0;
 
 
-        //    string[,] MinMaxAvg = new string[3, 2] { { "Max", " " }, { "Min", " " }, { "Average", "" } };
-
-        //    MinMaxAvg[0, 1] = model.Ratings.Max().ToString();  //Sets Max Value
-        //    MinMaxAvg[1, 1] = model.Ratings.Min().ToString(); //Sets Min Value
-        //    MinMaxAvg[2, 1] = model.Ratings.Average().ToString(); //Sets Average Value
-        //    model.MinMaxAvg = MinMaxAvg;
-        //    model.MovieId = _userId;
-        //    return model;
+        }
 
 
-        //}
         public bool UpdateMovie(MovieEdit model)
         {
             using (var ctx = new ApplicationDbContext())
