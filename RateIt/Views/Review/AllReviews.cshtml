@@ -33,30 +33,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ReviewId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MovieId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MusicId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowId)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model) 
+     {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MovieId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MusicId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowId)
+            </td>
+        </tr>
+     }
 
 </table>

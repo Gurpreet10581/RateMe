@@ -16,6 +16,7 @@
     <div class="form-horizontal" style="color:black; font-size: 20px;" >
         <h4>Movie Edit</h4>
         <hr />
+
         <div class="form-group">
             @Html.LabelFor(model => model.MovieId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -47,6 +48,7 @@
                 @Html.ValidationMessageFor(model => model.Duration, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.GenreOfMovie, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -54,6 +56,7 @@
                 @Html.ValidationMessageFor(model => model.GenreOfMovie, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.DateRelease, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

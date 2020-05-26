@@ -37,7 +37,7 @@
     </tr>
 
     @foreach (var item in Model)
-    {
+     {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MovieId)
@@ -66,6 +66,6 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
             </td>
         </tr>
-    }
+     }
 
 </table>

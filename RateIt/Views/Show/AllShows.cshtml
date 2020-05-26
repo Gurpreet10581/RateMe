@@ -32,31 +32,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShowName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DirectorName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duration)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateRelease)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedUtc)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new {  id=item.ShowId })
+    @foreach (var item in Model) 
+     {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShowName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DirectorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateRelease)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedUtc)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new {  id=item.ShowId })
           
-        </td>
-    </tr>
-}
+            </td>
+        </tr>
+     }
 
 </table>

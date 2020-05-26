@@ -81,55 +81,55 @@
 <p style="font-size: x-large;">Avg Rating***** @ViewBag.AverageRating</p>
 <hr />
 
-@foreach (var review in Model.Reviews)
-{
-    <div>
-        <h4>ReviewDetail</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => review.ReviewId)
-            </dt>
+    @foreach (var review in Model.Reviews)
+     {
+        <div>
+            <h4>ReviewDetail</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => review.ReviewId)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => review.ReviewId)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => review.ReviewId)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => review.Content)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => review.Content)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => review.Content)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => review.Content)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => review.Rating)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => review.Rating)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => review.Rating)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => review.Rating)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => review.CreatedUtc)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => review.CreatedUtc)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => review.CreatedUtc)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => review.CreatedUtc)
+                </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => review.ModifiedUtc)
-            </dt>
+                <dt>
+                    @Html.DisplayNameFor(model => review.ModifiedUtc)
+                </dt>
 
-            <dd>
-                @Html.DisplayFor(model => review.ModifiedUtc)
-            </dd>
+                <dd>
+                    @Html.DisplayFor(model => review.ModifiedUtc)
+                </dd>
 
-        </dl>
-    </div>
-}
+            </dl>
+        </div>
+     }
 <p style="font-size:large;">
     @Html.ActionLink("Edit", "Edit", new { id = Model.Music.MusicId }) |
     @Html.ActionLink("Back to List", "AllMusic") |

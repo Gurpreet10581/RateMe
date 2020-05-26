@@ -75,35 +75,33 @@
 <body style="background-image: url('../../Content/Image/2275.jpg'); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: medium; color: black; ">
 
     <div class="sidenav">
-        < @Html.ActionLink("RateMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Home", "Index", "Home")
-        <button class="dropdown-btn">
-            Start Here
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-container">
-            <ul class="nav navbar-nav">
+                @Html.Partial("_LoginPartial")
+              < @Html.ActionLink("RateMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Home", "Index", "Home")*@
+                @Html.ActionLink("About", "About", "Home")
+                @Html.ActionLink("Contact", "Contact", "Home")
+
 
                 @if (User.Identity.IsAuthenticated)
-                {
-                    <li>
-                        @Html.ActionLink("See All Reviews", "AllReviews", "Review")
-                    </li>
-                    <li>@Html.ActionLink("See All Movies", "AllMovies", "Movie")</li>
-                    <li>@Html.ActionLink("See All Music", "AllMusic", "Music")</li>
-                    <li>@Html.ActionLink("See All Shows", "AllShows", "Show")</li>
+                 {
 
-                    <li>@Html.ActionLink("My Review", "Index", "Review")</li>
-                    <li>@Html.ActionLink("My Movie", "Index", "Movie")</li>
-                    <li>@Html.ActionLink("My Music", "Index", "Music")</li>
-                    <li>@Html.ActionLink("My Show", "Index", "Show")</li>
-                }
-
-            </ul>
-        </div>
-                    @Html.ActionLink("About", "About", "Home")
-                    @Html.ActionLink("Contact", "Contact", "Home")
-            @Html.Partial("_LoginPartial")
+                        <button class="dropdown-btn">
+                            Start Here
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                            <div class="dropdown-container">
+                                <ul class="nav navbar-nav">
+                                    <li>@Html.ActionLink("See All Reviews", "AllReviews", "Review")</li>
+                                    <li>@Html.ActionLink("See All Movies", "AllMovies", "Movie")</li>
+                                    <li>@Html.ActionLink("See All Music", "AllMusic", "Music")</li>
+                                    <li>@Html.ActionLink("See All Shows", "AllShows", "Show")</li>
+                                    <li>@Html.ActionLink("My Review", "Index", "Review")</li>
+                                    <li>@Html.ActionLink("My Movie", "Index", "Movie")</li>
+                                    <li>@Html.ActionLink("My Music", "Index", "Music")</li>
+                                    <li>@Html.ActionLink("My Show", "Index", "Show")</li>
+                                </ul>
+                            </div>
+                 }
     </div>
 
     @*<div class="main">

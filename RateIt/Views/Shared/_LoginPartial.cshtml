@@ -5,7 +5,7 @@
     {
         @Html.AntiForgeryToken()
         <li >
-            <button  style="background-color:white; font-size:small; ">Hello!!! @User.Identity.Name</button>
+            <button style="background-color:white; font-size:medium; text-align:center; align-items:center;">Hello!!! @User.Identity.Name</button>
         </li>
         <ul >
             <li>
@@ -23,7 +23,6 @@ else
 {
     <ul >
         <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <br />
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
