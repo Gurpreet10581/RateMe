@@ -23,7 +23,7 @@ namespace RateItData
 
         [Required]
         [Remote("IsMovieNameExist", "Movie", AdditionalFields = "Id",
-                ErrorMessage = "Moview name already exists")]
+                ErrorMessage = "Movie name already exists")]
         public string MovieName { get; set; }
 
         [Required]

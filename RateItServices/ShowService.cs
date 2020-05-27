@@ -90,7 +90,7 @@ namespace RateItServices
                 var entity =
                     ctx
                     .Shows
-                    .Single(e => e.ShowId == id /*&& e.OwnerId == _userId*/);
+                    .Single(e => e.ShowId == id);
                 return
                     new ShowDetail
                     {

@@ -74,10 +74,10 @@
 </head>
 <body style="background-image: url('../../Content/Image/2275.jpg'); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: medium; color: black; ">
 
-    <div class="sidenav">
+    <div class="sidenav" >
                 @Html.Partial("_LoginPartial")
               < @Html.ActionLink("RateMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @*@Html.ActionLink("Home", "Index", "Home")*@
+                @Html.ActionLink("Home", "Index", "Home")
                 @Html.ActionLink("About", "About", "Home")
                 @Html.ActionLink("Contact", "Contact", "Home")
 
@@ -103,14 +103,6 @@
                             </div>
                  }
     </div>
-
-    @*<div class="main">
-        <h2>Please Select Your Option from Sidebar ==></h2>
-        <p>Click The Dropdown "Start Here" to see your options </p>
-
-        
-    </div>*@
-
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");
         var i;
@@ -127,7 +119,7 @@
             });
         }
     </script>
-    <div class="container body-content">
+    <div class="container body-content" >
         @RenderBody()
         <hr />
         <footer>

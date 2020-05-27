@@ -75,27 +75,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MovieReviewView.cs" />
     <Compile Include="Movie\MovieCreate.cs" />
     <Compile Include="Movie\MovieDetail.cs" />
     <Compile Include="Movie\MovieEdit.cs" />
     <Compile Include="Movie\MovieListItem.cs" />
-    <Compile Include="MusicReviewView.cs" />
+    <Compile Include="Movie\MovieReviewView.cs" />
     <Compile Include="Music\MusicCreate.cs" />
     <Compile Include="Music\MusicDetail.cs" />
     <Compile Include="Music\MusicEdit.cs" />
     <Compile Include="Music\MusicListItem.cs" />
+    <Compile Include="Music\MusicReviewView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review\ReviewCreate.cs" />
     <Compile Include="Review\ReviewDetail.cs" />
     <Compile Include="Review\ReviewEdit.cs" />
     <Compile Include="Review\ReviewListItem.cs" />
-    <Compile Include="Review\ReviewStatistics.cs" />
-    <Compile Include="ShowReviewView.cs" />
     <Compile Include="Show\ShowCreate.cs" />
     <Compile Include="Show\ShowDetail.cs" />
     <Compile Include="Show\ShowEdit.cs" />
     <Compile Include="Show\ShowListItem.cs" />
+    <Compile Include="Show\ShowReviewView.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

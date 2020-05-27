@@ -90,7 +90,7 @@ namespace RateItServices
                 var entity =
                     ctx
                     .Musics
-                    .Single(e => e.MusicId == id /*&& e.OwnerId == _userId*/);
+                    .Single(e => e.MusicId == id);
                 return
                     new MusicDetail
                     {
