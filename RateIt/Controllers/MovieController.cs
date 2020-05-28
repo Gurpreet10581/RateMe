@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using RateIt.Data;
 using RateIt.Models;
+using RateItData;
 using RateItModels;
 using RateItModels.Movie;
 using RateItModels.Review;
@@ -31,8 +32,10 @@ namespace RateIt.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MovieService(userId);
             var model = service.GetAllMovies();
+
             return View(model);
         }
+
         public ActionResult Create()
         {
             return View();

@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Detail</h2>
 
 <div style="color:black; font-size: 20px;">
     <h4>MusicDetail</h4>
@@ -131,8 +131,7 @@
         </div>
      }
 <p style="font-size:large;">
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Music.MusicId }) |*@
-    @Html.ActionLink("Back to List", "AllMusic") |
+    @Html.ActionLink("Back to List", "Index","MusicSearch") |
     @Html.ActionLink("Create Review", "CreateMusicReview", "Review", new { ID = Model.Music.MusicId }, null)
 
 </p>

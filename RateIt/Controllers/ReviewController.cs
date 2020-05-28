@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using RateIt.Data;
 using RateIt.Models;
+using RateItData;
 using RateItModels.Movie;
 using RateItModels.Review;
 using RateItServices;
@@ -15,6 +16,7 @@ namespace RateIt.Controllers
 {
     public class ReviewController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -30,6 +32,8 @@ namespace RateIt.Controllers
             var model = service.GeAllReviews();
             return View(model);
         }
+
+        
 
         public ActionResult Create(int ID)
         {

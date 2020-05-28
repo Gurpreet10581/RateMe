@@ -107,7 +107,6 @@ namespace RateItServices
                     };
             }
         }
-
         public IEnumerable<ReviewDetail> GetReveiwsByMovieId(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -150,8 +149,6 @@ namespace RateItServices
 
             }
             else return 0;
-
-
         }
 
 

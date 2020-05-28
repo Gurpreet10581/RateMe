@@ -5,11 +5,12 @@
     {
         @Html.AntiForgeryToken()
         <li >
-            <button style="background-color:white; font-size:medium; text-align:center; align-items:center;">Hello!!! @User.Identity.Name</button>
+            <button style="background-color:white; font-size:small;">Hello!!!<br />@User.Identity.Name</button>
         </li>
-        <ul >
+
+        <ul>
             <li>
-                <a href="javascript:document.getElementById('logoutForm').submit()" style="font-size:large;">
+                <a href="javascript:document.getElementById('logoutForm').submit()" style="font-size:large; ">
                     Log off
                     <span class="glyphicon glyphicon-log-out"></span>
                 </a>
