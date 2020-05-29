@@ -5,8 +5,7 @@
 }
 
 <h2>Show Index</h2>
-
-<p style="font-size:x-large;">
+<p style="font-size:large;">
     @Html.ActionLink("Create A New Show", "Create")
 </p>
 @if (TempData.ContainsKey("SaveResult"))
@@ -31,16 +30,13 @@
             @Html.DisplayNameFor(model => model.DirectorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.GenreOfShow)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateRelease)
+            @Html.DisplayNameFor(model => model.Duration)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
+            @Html.DisplayNameFor(model => model.DateRelease)
         </th>
         <th></th>
     </tr>
@@ -58,16 +54,13 @@
                 @Html.DisplayFor(modelItem => item.DirectorName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.GenreOfShow)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateRelease)
+                @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
+                @Html.DisplayFor(modelItem => item.DateRelease)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ShowId }) |
@@ -78,3 +71,8 @@
     }
 
 </table>
+<p style="font-size:large;">
+
+    @Html.ActionLink("Back to List", "AllShows", "Show")
+
+</p>

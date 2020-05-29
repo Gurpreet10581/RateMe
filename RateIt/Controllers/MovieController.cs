@@ -29,14 +29,31 @@ namespace RateIt.Controllers
             return View(model);
 
         }
-        public ActionResult AllMovies(string searchString)
+        public ActionResult AllMovies(string sortOrder,string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var movies = from s in db.Movies
                          select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(s => s.MovieName.Contains(searchString));
 
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    movies = movies.OrderByDescending(s => s.MovieName);
+                    break;
+                case "Date":
+                    movies = movies.OrderBy(s => s.DateRelease);
+                    break;
+                case "date_desc":
+                    movies = movies.OrderByDescending(s => s.DateRelease);
+                    break;  
+                default:
+                    movies = movies.OrderBy(s => s.MovieName);
+                    break;
             }
             return View(movies.ToList());
         }

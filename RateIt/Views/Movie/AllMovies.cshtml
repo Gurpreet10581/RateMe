@@ -20,25 +20,26 @@
             @Html.DisplayNameFor(model => model.MovieId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MovieName)
+            @Html.ActionLink("Movie Name", "Index", new { sortOrder = ViewBag.NameSortParm })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DirectorName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.GenreOfMovie)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Duration)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DateRelease)
+            @Html.ActionLink("Date Release", "Index", new { sortOrder = ViewBag.DateSortParm })
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
+
         <th></th>
     </tr>
 
     @foreach (var item in Model)
-    {
+     {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MovieId)
@@ -50,19 +51,20 @@
                 @Html.DisplayFor(modelItem => item.DirectorName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.GenreOfMovie)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateRelease)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
+
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.MovieId })
 
             </td>
         </tr>
-    }
+     }
 
 </table>

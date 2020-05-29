@@ -32,17 +32,15 @@
             @Html.DisplayNameFor(model => model.DirectorName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
+            @Html.DisplayNameFor(model => model.GenreOfMovie)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GenreOfMovie)
+            @Html.DisplayNameFor(model => model.Duration)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateRelease)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -59,23 +57,26 @@
                 @Html.DisplayFor(modelItem => item.DirectorName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Duration)
+                @Html.DisplayFor(modelItem => item.GenreOfMovie)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GenreOfMovie)
+                @Html.DisplayFor(modelItem => item.Duration)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateRelease)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
+           
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
                 @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
             </td>
         </tr>
-    }
+        }
 
 </table>
+        <p style="font-size:large;">
+
+            @Html.ActionLink("Back to List", "AllMovies", "Movie") 
+
+        </p>

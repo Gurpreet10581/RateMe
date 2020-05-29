@@ -28,14 +28,31 @@ namespace RateIt.Controllers
             var model = service.GetShows();
             return View(model);
         }
-        public ActionResult AllShows(string searchString)
+        public ActionResult AllShows(string sortOrder,string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var shows = from s in db.Shows
                          select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 shows = shows.Where(s => s.ShowName.Contains(searchString));
 
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    shows = shows.OrderByDescending(s => s.ShowName);
+                    break;
+                case "Date":
+                    shows = shows.OrderBy(s => s.DateRelease);
+                    break;
+                case "date_desc":
+                    shows = shows.OrderByDescending(s => s.DateRelease);
+                    break;
+                default:
+                    shows = shows.OrderBy(s => s.ShowName);
+                    break;
             }
             return View(shows.ToList());
         }

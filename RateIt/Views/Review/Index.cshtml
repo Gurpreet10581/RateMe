@@ -39,9 +39,7 @@
         <th>
             @Html.DisplayNameFor(model => model.ShowId)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -66,9 +64,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ShowId)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
+            
             <td>
                 @Html.ActionLink("Details", "Details", new { id = item.ReviewId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ReviewId })

@@ -7,7 +7,7 @@
 <h2>All Reviews</h2>
 
 
-<table  class="table" align="center"  style="font-family:Arial; text-align:left; ">
+<table class="table" align="center"  style="font-family:Arial; text-align:left; ">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ReviewId)
@@ -18,9 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Rating)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedUtc)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.MovieId)
         </th>
@@ -45,9 +43,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedUtc)
-            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.MovieId)
             </td>

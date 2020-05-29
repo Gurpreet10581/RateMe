@@ -27,14 +27,31 @@ namespace RateIt.Controllers
             var model = service.GetMusics();
             return View(model);
         }
-        public ActionResult AllMusic(string searchString)
+        public ActionResult AllMusic(string sortOrder,string searchString)
         {
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             var musics = from s in db.Musics
                          select s;
             if (!String.IsNullOrEmpty(searchString))
             {
                 musics = musics.Where(s => s.ArtistName.Contains(searchString));
 
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    musics = musics.OrderByDescending(s => s.ArtistName);
+                    break;
+                case "Date":
+                    musics = musics.OrderBy(s => s.DateRelease);
+                    break;
+                case "date_desc":
+                    musics = musics.OrderByDescending(s => s.DateRelease);
+                    break;
+                default:
+                    musics = musics.OrderBy(s => s.ArtistName);
+                    break;
             }
             return View(musics.ToList());
         }
