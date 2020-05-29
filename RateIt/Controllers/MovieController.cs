@@ -22,18 +22,23 @@ namespace RateIt.Controllers
         // GET: Movie
         public ActionResult Index()
         {
+
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new MovieService(userId);
             var model = service.GetMovies();
             return View(model);
-        }
-        public ActionResult AllMovies()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new MovieService(userId);
-            var model = service.GetAllMovies();
 
-            return View(model);
+        }
+        public ActionResult AllMovies(string searchString)
+        {
+            var movies = from s in db.Movies
+                         select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(s => s.MovieName.Contains(searchString));
+
+            }
+            return View(movies.ToList());
         }
 
         public ActionResult Create()

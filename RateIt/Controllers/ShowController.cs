@@ -28,12 +28,16 @@ namespace RateIt.Controllers
             var model = service.GetShows();
             return View(model);
         }
-        public ActionResult AllShows()
+        public ActionResult AllShows(string searchString)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ShowService(userId);
-            var model = service.GetAllShows();
-            return View(model);
+            var shows = from s in db.Shows
+                         select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                shows = shows.Where(s => s.ShowName.Contains(searchString));
+
+            }
+            return View(shows.ToList());
         }
         public ActionResult Create()
         {

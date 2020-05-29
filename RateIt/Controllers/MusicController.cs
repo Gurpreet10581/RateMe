@@ -18,6 +18,8 @@ namespace RateIt.Controllers
 {
     public class MusicController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -25,12 +27,16 @@ namespace RateIt.Controllers
             var model = service.GetMusics();
             return View(model);
         }
-        public ActionResult AllMusic()
+        public ActionResult AllMusic(string searchString)
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new MusicService(userId);
-            var model = service.GetAllMusic();
-            return View(model);
+            var musics = from s in db.Musics
+                         select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                musics = musics.Where(s => s.ArtistName.Contains(searchString));
+
+            }
+            return View(musics.ToList());
         }
         public ActionResult Create()
         {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RateItModels.Show.ShowListItem>
+﻿@model IEnumerable<RateItData.Show>
 
 @{
     ViewBag.Title = "AllShows";
@@ -6,6 +6,13 @@
 
 <h2>All Shows</h2>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}
 
 <table class="table">
     <tr>
@@ -30,8 +37,8 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model) 
-     {
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ShowId)
@@ -52,10 +59,10 @@
                 @Html.DisplayFor(modelItem => item.CreatedUtc)
             </td>
             <td>
-                @Html.ActionLink("Details", "Details", new {  id=item.ShowId })
-          
+                @Html.ActionLink("Details", "Details", new { id = item.ShowId })
+
             </td>
         </tr>
-     }
+    }
 
 </table>
