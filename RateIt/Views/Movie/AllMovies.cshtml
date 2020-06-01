@@ -37,34 +37,43 @@
 
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
+    @if (Model.Count() == 0)
      {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MovieId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MovieName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DirectorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GenreOfMovie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRelease)
-            </td>
-
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.MovieId })
-
-            </td>
+            <td colspan="6">Your search doesn't exist.Clear the search box and press search to go back to previous view.</td>
         </tr>
      }
+    else
+    {
+
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MovieName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DirectorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreOfMovie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRelease)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.MovieId })
+
+                </td>
+            </tr>
+        }
+    }
 
 </table>

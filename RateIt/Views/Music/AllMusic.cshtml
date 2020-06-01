@@ -8,12 +8,12 @@
 
 
 @using (Html.BeginForm())
-{
+ {
     <p>
         Find by name: @Html.TextBox("SearchString")
         <input type="submit" value="Search" />
     </p>
-}
+ }
 <table class="table">
     <tr>
         <th>
@@ -35,37 +35,48 @@
             @Html.ActionLink("Date Release", "Index", new { sortOrder = ViewBag.DateSortParm })
 
         </th>
-        
+
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-     {
+    @if (Model.Count() == 0)
+    {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MusicId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArtistName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GenreOfMusic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeOfMusic)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Duration)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateRelease)
-            </td>
-           
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.MusicId })
-
-            </td>
+            <td colspan="6">Your search doesn't exist.Clear the search box and press search to go back to previous view.</td>
         </tr>
-     }
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MusicId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArtistName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreOfMusic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TypeOfMusic)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateRelease)
+                </td>
 
-</table>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.MusicId })
+
+                </td>
+            </tr>
+        }
+    }
+
+
+
+    </table>

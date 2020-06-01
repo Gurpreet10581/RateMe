@@ -68,10 +68,18 @@
 <body  class="pull-left" style="background-image: url('../../Content/Image/2275.jpg'); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size: medium; color: black;  ">
 
     <div class="sidenav" >
-        <div style="justify-content:center; text-align:center;">
-                @Html.Partial("_LoginPartial")
-
-        </div>
+                            <button class="dropdown-btn">
+                            Account
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                            <div class="dropdown-container">
+                                <ul class="nav navbar-nav">
+                                    <li>
+                                        @Html.Partial("_LoginPartial")
+                                    </li>
+                                   
+                                </ul>
+                            </div>
                 @Html.ActionLink("RateMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 @Html.ActionLink("Home", "Index", "Home")
                 @Html.ActionLink("About", "About", "Home")
@@ -97,6 +105,7 @@
                                     <li>@Html.ActionLink("My Show", "Index", "Show")</li>
                                 </ul>
                             </div>
+
                  }
     </div>
     <script>
