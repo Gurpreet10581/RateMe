@@ -79,6 +79,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202005261805391_InitialCreate.cs" />
+    <Compile Include="Migrations\202005261805391_InitialCreate.Designer.cs">
+      <DependentUpon>202005261805391_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006031558590_overrideCascadeDelete.cs" />
+    <Compile Include="Migrations\202006031558590_overrideCascadeDelete.Designer.cs">
+      <DependentUpon>202006031558590_overrideCascadeDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006031811449_addingOnModelCreatingTrue.cs" />
+    <Compile Include="Migrations\202006031811449_addingOnModelCreatingTrue.Designer.cs">
+      <DependentUpon>202006031811449_addingOnModelCreatingTrue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Movie.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +101,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005261805391_InitialCreate.resx">
+      <DependentUpon>202005261805391_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006031558590_overrideCascadeDelete.resx">
+      <DependentUpon>202006031558590_overrideCascadeDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006031811449_addingOnModelCreatingTrue.resx">
+      <DependentUpon>202006031811449_addingOnModelCreatingTrue.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

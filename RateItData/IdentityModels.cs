@@ -47,6 +47,10 @@ namespace RateIt.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+            modelBuilder.Entity<Review>().HasOptional<Movie>(r => r.Movie).WithMany().WillCascadeOnDelete(true);
+            modelBuilder.Entity<Review>().HasOptional<Music>(r => r.Music).WithMany().WillCascadeOnDelete(true);
+            modelBuilder.Entity<Review>().HasOptional<Show>(r => r.Show).WithMany().WillCascadeOnDelete(true);
+
         }
     }
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
