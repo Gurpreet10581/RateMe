@@ -114,7 +114,7 @@ namespace RateItServices
                 var query =
                     ctx
                     .Reviews
-                    .Where(e => e.MovieId == id && e.OwnerId == _userId)
+                    .Where(e => e.MovieId == id)
                     .Select(
                                 e=>
                                 new ReviewDetail

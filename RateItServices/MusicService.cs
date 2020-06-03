@@ -112,7 +112,7 @@ namespace RateItServices
                 var query =
                     ctx
                     .Reviews
-                    .Where(e => e.MusicId == id && e.OwnerId == _userId)
+                    .Where(e => e.MusicId == id )
                     .Select(
                                 e =>
                                 new ReviewDetail
